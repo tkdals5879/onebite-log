@@ -6,11 +6,6 @@ import { toast } from "sonner";
 export function useSignInWithPassword(callbacks?: UseMutationCallback) {
   return useMutation({
     mutationFn: signInWithPassword,
-    onSuccess: () => {
-      toast.success("success!", {
-        position: "top-center",
-      });
-    },
     onError: (error) => {
       if (callbacks?.onError) callbacks.onError(error);
     },
