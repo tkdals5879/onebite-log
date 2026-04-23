@@ -1,19 +1,11 @@
 import RootRoute from "./root-route";
-import { supabase } from "./lib/supabase";
-import { useEffect } from "react";
-import { useSetSession } from "./store/session";
+import SessionProvider from "./provider/session-provider";
 
 export default function App() {
 
-  const setSession = useSetSession();
-
-  useEffect(() => {
-    supabase.auth.onAuthStateChange((event, session) => {
-      setSession(session)
-    })
-  }, [])
-
   return (
-    <RootRoute />
+    <SessionProvider>
+      <RootRoute />
+    </SessionProvider>
   );
 }
