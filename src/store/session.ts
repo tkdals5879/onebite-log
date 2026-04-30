@@ -28,8 +28,8 @@ const useSessionStore = create(
 );
 
 export const useSession = () => {
-  const sesstion = useSessionStore((store) => store.session);
-  return sessionStorage;
+  const session = useSessionStore((store) => store.session);
+  return session;
 };
 
 export const useIsSessionLoaded = () => {
